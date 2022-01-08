@@ -1,0 +1,37 @@
+{
+    "name": "ekoh/blog-post",
+    "description": "A simple blog package in php",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "role": "Author",
+            "name": "Ekoh Franklin",
+            "email": "ekohfranklin@gmail.com",
+            "homepage": "https://github.com/franklinekoh/"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": false,
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "autoload": {
+        "psr-4": {
+            "practice\\blogPost\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "practice\\blogPost\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+
+    }
+}
