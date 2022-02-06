@@ -20,18 +20,24 @@
     },
     "autoload": {
         "psr-4": {
-            "practice\\blogPost\\": "src/"
+            "Practice\\BlogPost\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "practice\\blogPost\\Tests\\": "tests/"
+            "Practice\\BlogPost\\Tests\\": "tests/"
         }
     },
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "fakerphp/faker": "^1.17"
     },
     "require-dev": {
-
+        "pestphp/pest": "^1.21"
+    },
+    "scripts": {
+        "analyze": "./vendor/bin/psalm --show-info=true",
+        "test": "./vendor/bin/pest",
+        "test-coverage": "./vendor/bin/pest --coverage"
     }
 }

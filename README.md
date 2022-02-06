@@ -15,23 +15,35 @@ composer require ekoh/blog-posts
 ```php
 $blog = new Blog();
 
-$blog->addPost([
-    'Title' => 'Post title',
-    'image' => 'Path/to/image (optional)',
-    'body' => 'post body',
-    'author' => 'author',
-]);
+$postArray = [
+                 'id' => 1,
+                 'Title' => 'Post title',
+                 'image' => 'Path/to/image (optional)',
+                 'body' => 'post body',
+                 'author' => 'author',
+                 'hidden' => 0,
+                 'comments' => []
+             ];
 
-$blog->getPost($postId);
+$blog->addPost($postArray);
+
 
 $blog->getPosts($offset, $limit);
 
+$blog->editPost($postId, $postArray);
+
+$blog->getPost($postId);
+
 $post = new Post($postId);
 
-$post->addComment([
-    'body' => 'post comment',
-    'author' => 'optional'
-]);
+$commentArray = [
+                   'body' => 'post comment',
+                   'author' => 'optional'
+               ];
 
-$post->getComments();
+$post->addComment($commentArray);
+
+$post->getComments($offset, $limit);
+
+$post->editComment($commentId, $commentArray);
 ```
