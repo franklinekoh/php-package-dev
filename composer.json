@@ -30,7 +30,8 @@
     },
     "require": {
         "php": "^7.0",
-        "fakerphp/faker": "^1.17"
+        "fakerphp/faker": "^1.17",
+        "illuminate/database": "^8.83"
     },
     "require-dev": {
         "pestphp/pest": "^1.21"

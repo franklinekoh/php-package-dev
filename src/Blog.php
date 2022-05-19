@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace Practice\BlogPost;
 
 use Practice\BlogPost\Contracts\BlogContract;
+use Practice\BlogPost\Validators\AddPostValidator;
+use Practice\BlogPost\Validators\EditPostValidator;
 
 
 class Blog implements BlogContract
@@ -18,8 +20,13 @@ class Blog implements BlogContract
      */
     public function addPost(array $postParams): array
     {
-         $this->posts[] = $postParams;
-         return $this->posts;
+         $validator = new AddPostValidator($postParams);
+
+         if ($validator->validate()){
+             $this->posts[] = $postParams;
+             return $this->posts;
+         }
+         return $validator->errors();
     }
 
     /**
@@ -49,15 +56,20 @@ class Blog implements BlogContract
      */
     public function editPost(int $postId, array $postParam): array
     {
-        // TODO: Implement editPost() method.
-        $posts = $this->posts;
-        foreach ( $posts as $key => $post){
-            if ($post['id'] == $postId){
-                $posts[$key] = $postParam;
+        $validator = new EditPostValidator($postParam);
+
+        if ($validator->validate()){
+            $posts = $this->posts;
+            foreach ( $posts as $key => $post){
+                if ($post['id'] == $postId){
+                    $posts[$key] = $postParam;
+                }
             }
+
+            $this->posts = $posts;
+            return $posts;
         }
 
-        $this->posts = $posts;
-        return $posts;
+        return $validator->errors();
     }
 }

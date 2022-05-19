@@ -7,18 +7,17 @@ test('it adds post', function () {
 
     $postParam = [
         'id' => 1,
-        'Title' => 'Post title',
+        'title' => 'Post title',
         'image' => 'Path/to/image (optional)',
-        'body' => 'post body',
+        'body' => 'character ksjdksjdkjsk skjdksjdkjd',
         'author' => 'author',
-        'hidden' => 0,
+        'hidden' => 1,
         'comments' => []
     ];
 
     $blog = new Blog();
 
     expect($blog)->toBeInstanceOf(\Practice\BlogPost\Contracts\BlogContract::class);
-
     expect($blog->addPost($postParam))->toContain($postParam);
 });
 
@@ -31,7 +30,7 @@ test('it gets posts and pagination works', function (){
     for($i = 1; $i < $total_number_of_posts; $i++){
         $postParam = [
             'id' => $i,
-            'Title' => $faker->sentence(),
+            'title' => $faker->sentence(),
             'image' => $faker->imageUrl(),
             'body' => $faker->text(500),
             'author' => $faker->name,
@@ -50,9 +49,9 @@ test('it edits post', function (){
 
     $postParam = [
         'id' => 1,
-        'Title' => 'Post title',
+        'title' => 'Post title',
         'image' => 'Path/to/image (optional)',
-        'body' => 'post body',
+        'body' => 'post body should exceed 20 characters',
         'author' => 'author',
         'hidden' => 0,
         'comments' => []
@@ -62,7 +61,7 @@ test('it edits post', function (){
 
     $blog->addPost($postParam);
 
-    $postParam['Title'] = 'edit post title';
+    $postParam['title'] = 'edit post title';
     $blog->editPost(1, $postParam);
 
     expect($blog->getPosts())->toContain($postParam);
@@ -72,9 +71,9 @@ test('it edits post', function (){
 test('it gets post by id', function (){
     $postParam = [
         'id' => 1,
-        'Title' => 'Post title',
+        'title' => 'Post title',
         'image' => 'Path/to/image (optional)',
-        'body' => 'post body',
+        'body' => 'post body is a body of engineer',
         'author' => 'author',
         'hidden' => 0,
         'comments' => []

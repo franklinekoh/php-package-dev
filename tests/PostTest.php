@@ -1,5 +1,4 @@
 <?php
-
 use Practice\BlogPost\Blog;
 use Practice\BlogPost\Post;
 use Faker\Factory;
@@ -7,9 +6,9 @@ use Faker\Factory;
 test('it adds comment to post', function (){
     $postParam = [
         'id' => 1,
-        'Title' => 'Post title',
+        'title' => 'Post title',
         'image' => 'Path/to/image (optional)',
-        'body' => 'post body',
+        'body' => 'post body here should ge something else',
         'author' => 'author',
         'hidden' => 0,
         'comments' => []
@@ -36,9 +35,9 @@ it('gets comments', function (){
 
     $postParam = [
         'id' => 1,
-        'Title' => 'Post title',
+        'title' => 'Post title',
         'image' => 'Path/to/image (optional)',
-        'body' => 'post body',
+        'body' => 'post body should have 20 character length',
         'author' => 'author',
         'hidden' => 0,
         'comments' => []
@@ -69,9 +68,9 @@ it('edits comments', function (){
 
     $postParam = [
         'id' => 1,
-        'Title' => 'Post title',
+        'title' => 'Post title',
         'image' => 'Path/to/image (optional)',
-        'body' => 'post body',
+        'body' => 'post body should have twenty character or greater',
         'author' => 'author',
         'hidden' => 0,
         'comments' => []
