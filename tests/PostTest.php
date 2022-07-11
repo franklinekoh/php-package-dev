@@ -14,13 +14,14 @@ test('it adds comment to post', function (){
         'comments' => []
     ];
 
-    $blog = new Blog();
+    $blog = Blog::getInstance();
     $blog->addPost($postParam);
 
     $faker = Factory::create();
     $commentBody = $faker->realText();
     $commentAuthor = $faker->name;
     $comment = [
+        'id' => 1,
         'body' => $commentBody,
         'author' => $commentAuthor
     ];
@@ -43,11 +44,11 @@ it('gets comments', function (){
         'comments' => []
     ];
 
-    $blog = new Blog();
+    $blog = Blog::getInstance();
     $blog->addPost($postParam);
 
     $post = new Post(1, $blog);
-    for ($i = 0; $i < 10; $i++){
+    for ($i = 1; $i < 10; $i++){
 
         $faker = Factory::create();
         $commentBody = $faker->realText();
@@ -76,7 +77,7 @@ it('edits comments', function (){
         'comments' => []
     ];
 
-    $blog = new Blog();
+    $blog = Blog::getInstance();
     $blog->addPost($postParam);
 
     $comment = [

@@ -74,6 +74,7 @@ class Post implements PostContract
 
         if ($validator->validate()){
             foreach ($this->allComments as $singleComment){
+                var_dump($singleComment);
                 if ($comment['id'] == $singleComment['id']){
                     $this->allComments[$comment['id']] = $comment;
                     continue;

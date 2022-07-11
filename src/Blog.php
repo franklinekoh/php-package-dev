@@ -11,6 +11,7 @@ use Practice\BlogPost\Validators\EditPostValidator;
 class Blog implements BlogContract
 {
 
+    private static $blog;
     private array $posts = [];
 
     /**
@@ -18,6 +19,19 @@ class Blog implements BlogContract
      *
      *
      */
+
+    protected function __construct(){}
+
+    protected function __clone(){}
+
+    public static function getInstance(): Blog
+    {
+        if (!isset(self::$blog)){
+            self::$blog = new Blog();
+        }
+        return self::$blog;
+    }
+
     public function addPost(array $postParams): array
     {
          $validator = new AddPostValidator($postParams);
@@ -42,8 +56,8 @@ class Blog implements BlogContract
      */
     public function getPost(int $postId): array
     {
-        foreach ( $this->posts as $key => $post){
-            if ($post['id'] == $postId){
+        foreach ($this->posts as $key => $post){
+            if ($post['id'] === $postId){
                 return $post;
             }
         }

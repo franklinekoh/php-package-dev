@@ -15,7 +15,7 @@ test('it adds post', function () {
         'comments' => []
     ];
 
-    $blog = new Blog();
+    $blog = Blog::getInstance();
 
     expect($blog)->toBeInstanceOf(\Practice\BlogPost\Contracts\BlogContract::class);
     expect($blog->addPost($postParam))->toContain($postParam);
@@ -26,7 +26,7 @@ test('it gets posts and pagination works', function (){
     $total_number_of_posts = 100;
     $faker = Factory::create();
 
-    $blog = new Blog();
+    $blog = Blog::getInstance();
     for($i = 1; $i < $total_number_of_posts; $i++){
         $postParam = [
             'id' => $i,
@@ -48,7 +48,7 @@ test('it gets posts and pagination works', function (){
 test('it edits post', function (){
 
     $postParam = [
-        'id' => 1,
+        'id' => 101,
         'title' => 'Post title',
         'image' => 'Path/to/image (optional)',
         'body' => 'post body should exceed 20 characters',
@@ -57,7 +57,7 @@ test('it edits post', function (){
         'comments' => []
     ];
 
-    $blog = new Blog();
+    $blog = Blog::getInstance();
 
     $blog->addPost($postParam);
 
@@ -79,9 +79,10 @@ test('it gets post by id', function (){
         'comments' => []
     ];
 
-    $blog = new Blog();
+    $blog = Blog::getInstance();
 
     $blog->addPost($postParam);
-
+//    var_dump($blog->getPosts());
+////    var_dump($blog->getPost(1), $postParam);
     expect($blog->getPost(1))->toBe($postParam);
 });

@@ -1,7 +1,6 @@
 <?php
 namespace Practice\BlogPost\Validators;
 
-use Practice\BlogPost\Validators\Validator;
 interface ValidatorContract
 {
     /**
