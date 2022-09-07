@@ -13,7 +13,7 @@ composer require ekoh/blog-posts
 ##Usage
 
 ```php
-$blog = new Blog();
+$blog = Blog::getInstance();
 
 $postArray = [
                  'id' => 1,
