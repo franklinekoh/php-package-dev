@@ -29,12 +29,11 @@
         }
     },
     "require": {
-        "php": "^7.0",
-        "fakerphp/faker": "^1.17",
-        "illuminate/database": "^8.83"
+        "php": "^7.0"
     },
     "require-dev": {
-        "pestphp/pest": "^1.21"
+        "pestphp/pest": "^1.21",
+        "fakerphp/faker": "^1.17"
     },
     "scripts": {
         "analyze": "./vendor/bin/psalm --show-info=true",
