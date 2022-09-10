@@ -1,5 +1,5 @@
 {
-    "name": "ekoh/blog-post",
+    "name": "ekoh/blog-posts",
     "description": "A simple blog package in php",
     "type": "library",
     "license": "MIT",
