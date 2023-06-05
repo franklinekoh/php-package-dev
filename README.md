@@ -1,6 +1,6 @@
 #Blog Posts Package
 
-A simple blog posts package in PHP
+A simple blog posts package in PHP used for teaching package development in PHP on my [free youtube course](https://youtu.be/SAmvsOIFaec).
 
 ##installation
 
